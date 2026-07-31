@@ -1,0 +1,41 @@
+name: sync-labels
+
+# Syncs GitHub labels from `.github/labels.yml` to every repository
+# in the project-oxi organization.
+#
+# Uses github-actions/github-label-sync@v5 with --dry-run false
+# (single source of truth: labels.yml in this repo).
+
+on:
+  push:
+    paths:
+      - '.github/labels.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          - project-oxi/oxicode
+          - project-oxi/oxibrowser
+          - project-oxi/oxios
+          - project-oxi/oxinot
+          - project-oxi/oxipage
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync labels to ${{ matrix.repo }}
+        uses: github-actions/github-label-sync@v5
+        with:
+          config-file: .github/labels.yml
+          github-token: ${{ secrets.ORG_ADMIN_TOKEN }}
+          dry-run: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}

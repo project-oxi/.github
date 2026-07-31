@@ -1,0 +1,185 @@
+# Labels for the project-oxi organization.
+#
+# This file is consumed by a label-sync workflow (e.g. github-actionsbot
+# / label-sync-action / github-label-sync). Apply across every public
+# repo under project-oxi/* so the same workflow applies everywhere.
+#
+# Convention: every label has an emoji prefix that conveys its purpose
+# at a glance. Required labels are applied by a triager bot on first
+# triage; optional labels are applied by contributors per the
+# CONTRIBUTING.md policy (one `area:*` + one `type:*`).
+
+# ──────────────────────────── Type ────────────────────────────
+# What kind of change is this? (one per PR)
+
+- name: "type: feature"
+  color: "1f883d"
+  description: "New user-visible capability."
+
+- name: "type: bug"
+  color: "d73a4a"
+  description: "Fix for a broken or incorrect behavior."
+
+- name: "type: refactor"
+  color: "cfd3d7"
+  description: "Code change that neither fixes a bug nor adds a feature."
+
+- name: "type: perf"
+  color: "e99695"
+  description: "Performance improvement (benchmarked)."
+
+- name: "type: docs"
+  color: "0075ca"
+  description: "Documentation-only change (no behavior change)."
+
+- name: "type: test"
+  color: "bfd4f2"
+  description: "Add or modify tests only."
+
+- name: "type: chore"
+  color: "cccccc"
+  description: "Tooling, CI, dependencies, or maintenance."
+
+- name: "type: build"
+  color: "bfd4f2"
+  description: "Build system or packaging change."
+
+- name: "type: ci"
+  color: "0e8a16"
+  description: "CI/CD pipeline change."
+
+- name: "type: breaking"
+  color: "b60205"
+  description: "Breaking change requiring migration notes."
+
+- name: "type: revert"
+  color: "ffffff"
+  description: "Reverts a previous commit."
+
+# ──────────────────────────── Area ────────────────────────────
+# What code area is affected? (one per PR; project-specific scopes
+# can be added per-repo but should stay lowercase + colon-prefixed)
+
+- name: "area: core"
+  color: "fbca04"
+  description: "Core runtime / engine crate."
+
+- name: "area: cli"
+  color: "fbca04"
+  description: "Command-line interface."
+
+- name: "area: tui"
+  color: "fbca04"
+  description: "Terminal user interface (Ratatui, vtui)."
+
+- name: "area: web"
+  color: "fbca04"
+  description: "Web frontend (React, Tailwind, Astro)."
+
+- name: "area: desktop"
+  color: "fbca04"
+  description: "Desktop / Tauri shell."
+
+- name: "area: api"
+  color: "fbca04"
+  description: "Public API surface."
+
+- name: "area: lsp"
+  color: "fbca04"
+  description: "Language Server Protocol integration."
+
+- name: "area: sdk"
+  color: "fbca04"
+  description: "Software Development Kit."
+
+- name: "area: agent"
+  color: "fbca04"
+  description: "Agent runtime, sessions, skills."
+
+- name: "area: mcp"
+  color: "fbca04"
+  description: "Model Context Protocol integration."
+
+- name: "area: a2a"
+  color: "fbca04"
+  description: "Agent-to-Agent protocol integration."
+
+- name: "area: cdp"
+  color: "fbca04"
+  description: "Chrome DevTools Protocol (browser automation)."
+
+- name: "area: capture"
+  color: "fbca04"
+  description: "Note capture overlay (oxinot)."
+
+- name: "area: fts"
+  color: "fbca04"
+  description: "Full-text search index."
+
+- name: "area: docs"
+  color: "fbca04"
+  description: "Documentation in doc/ or DESIGN.md."
+
+- name: "area: ci"
+  color: "fbca04"
+  description: "Continuous integration."
+
+- name: "area: design"
+  color: "fbca04"
+  description: "Design tokens, components, OKLCH system."
+
+# ──────────────────────────── Status ────────────────────────────
+# Triage state. Applied by maintainers.
+
+- name: "status: needs-triage"
+  color: "ededed"
+  description: "Awaiting maintainer review and labeling."
+
+- name: "status: needs-design"
+  color: "d4c5f9"
+  description: "Needs design review before implementation."
+
+- name: "status: needs-security-review"
+  color: "b60205"
+  description: "Affects security-sensitive area (SECURITY.md §Security-Sensitive Areas)."
+
+- name: "status: blocked"
+  color: "ee0701"
+  description: "Waiting on an external dependency or decision."
+
+- name: "status: in-progress"
+  color: "fef2c0"
+  description: "Currently being worked on."
+
+- name: "status: wontfix"
+  color: "ffffff"
+  description: "Will not be addressed (with explanation)."
+
+- name: "status: duplicate"
+  color: "cccccc"
+  description: "Duplicates an existing issue."
+
+# ──────────────────────────── Priority ────────────────────────────
+
+- name: "priority: high"
+  color: "b60205"
+  description: "High urgency — fix or address promptly."
+
+- name: "priority: medium"
+  color: "fbca04"
+  description: "Medium urgency."
+
+- name: "priority: low"
+  color: "0e8a16"
+  description: "Low urgency / nice-to-have."
+
+# ──────────────────────────── Difficulty ────────────────────────────
+# Optional good-first-issue / help-wanted markers
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Suitable for first-time contributors."
+
+- name: "help wanted"
+  color: "008672"
+  description: "Maintainer welcomes external contributions."

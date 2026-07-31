@@ -32,13 +32,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
 |---------|-------------|-------|
 | [**oxinot**](https://github.com/project-oxi/oxinot) | Capture a thought before it's gone. Card-based note app for macOS. Plain `.md` files, rebuildable index, BM25 full-text search, CLI parity for agents. | Tauri 2 · React 19 · redb + tantivy |
 | [**oxipage**](https://github.com/project-oxi/oxipage) | Personal site generator for humans and AI agents. Blog, portfolio, novels, reviews from one CLI. 9 extensions, bilingual EN/KO. | Rust SSG · Axum console · embedded React SPA |
-| **oxiline** *(in development)* | Routine & day-flow management. Time as a playhead, routines as lanes, global-hotkey floating HUD. | Tauri 2 · React 19 · SQLite · Rust core |
 
-### ◳ Utilities
-
-| Project | What it does |
-|---------|-------------|
-| **oxicleaner** | Recursive `cargo target/` cleaner with launchd scheduling. Recovered ~280 GB on the dev machine. |
 
 ---
 
@@ -65,7 +59,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
            │         ┌────────┴────────┐          │
            │         │  oxinot         │          │
            │         │  oxipage        │          │
-           │         │  oxiline        │          │
+
            │         │ (consumer apps) │          │
            │         └─────────────────┘          │
            │                                      │
@@ -76,8 +70,8 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
 ```
 
 - **oxios** embeds **oxibrowser** as its in-process browsing engine.
-- **oxicode** and **oxios** share the agent runtime patterns (sessions, skills, multi-provider).
-- **oxinot**, **oxipage**, **oxiline** are standalone apps that share the design system and agent-first conventions.
+- **oxinot** and **oxipage** are standalone apps that share the design system and agent-first conventions.
+
 
 ---
 
