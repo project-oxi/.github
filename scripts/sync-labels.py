@@ -17,7 +17,7 @@ from pathlib import Path
 import yaml
 
 ORG = "project-oxi"
-REPOS = ["oxicode", "oxibrowser", "oxios", "oxinot", "oxipage"]
+REPOS = ["oxicode", "oxibrowser", "oxios", "oxinot", "oxipage", "oxiline"]
 OXICODE_ONLY = {
     "area: agent", "area: ai", "area: extensions", "area: security",
     "provider: anthropic", "provider: google", "provider: openai", "provider: other",

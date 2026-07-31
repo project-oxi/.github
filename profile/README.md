@@ -32,7 +32,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
 |---------|-------------|-------|
 | [**oxinot**](https://github.com/project-oxi/oxinot) | Capture a thought before it's gone. Card-based note app for macOS. Plain `.md` files, rebuildable index, BM25 full-text search, CLI parity for agents. | Tauri 2 · React 19 · redb + tantivy |
 | [**oxipage**](https://github.com/project-oxi/oxipage) | Personal site generator for humans and AI agents. Blog, portfolio, novels, reviews from one CLI. 9 extensions, bilingual EN/KO. | Rust SSG · Axum console · embedded React SPA |
-| *oxiline* | _(private, in development)_ | — |
+| [**oxiline**](https://github.com/project-oxi/oxiline) | Time as a playhead. macOS native routine/day-management app. Rust core, Tauri v2, CLI-first. | Rust core · Tauri v2 · embedded SQLite |
 
 
 ---
@@ -43,8 +43,8 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
                           project-oxi
                     ┌──────────────────────┐
                     │   shared design      │
-                    │   shared philosophy   │
-                    │   shared conventions  │
+                    │   shared philosophy  │
+                    │   shared conventions │
                     └──────────┬───────────┘
                                │
            ┌───────────────────┼───────────────────┐
@@ -60,18 +60,19 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
            │         ┌────────┴────────┐          │
            │         │  oxinot         │          │
            │         │  oxipage        │          │
-
+           │         │  oxiline        │          │
            │         │ (consumer apps) │          │
-                      plain-file storage
-           │                                      │
-           └──────────── all share ───────────────┘
-                      OKLCH tokens
-                      CLI / agent parity
-                      plain-file storage
+           │         └────────┬────────┘          │
+           │                  │                   │
+           └──────────────────┼───────────────────┘
+                              │
+              ──── all share ────
+                 OKLCH tokens
+                 CLI / agent parity
+                 plain-file storage
 ```
-
 - **oxios** embeds **oxibrowser** as its in-process browsing engine.
-- **oxinot** and **oxipage** are standalone apps that share the design system and agent-first conventions.
+- **oxinot**, **oxipage**, and **oxiline** are standalone apps that share the design system and agent-first conventions.
 
 
 ---
