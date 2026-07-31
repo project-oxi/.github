@@ -1,22 +1,21 @@
 # Labels for the project-oxi organization.
 #
 # Single source of truth for label names, colors, and descriptions.
-# Apply once per repo with `gh label clone` — no CI, no secrets, no
-# workflow to maintain. Re-run after editing this file.
+# 40 canonical labels grouped into: type (11), area (13),
+# status (9), priority (4), difficulty (2), release (1).
 #
-# Strategy: keep one repo (e.g. project-oxi/oxicode) as the "labels
-# template". This file documents what should be in that template repo.
+# Apply with the sync script (recommended, idempotent):
+#   gh api repos/project-oxi/labels-template  # ensure template repo exists
+#   python3 scripts/sync-labels.py
 #
-#   # Initial setup: ensure oxicode has the canonical labels, then clone
-#   # to the other four.
-#   REPOS="oxibrowser oxios oxinot oxipage"
-#   for r in $REPOS; do
-#     gh label clone project-oxi/oxicode --repo "project-oxi/$r"
-#   done
-#
+# Or use `gh label clone` against oxicode as template (oxicode also
+# carries 7 oxi-only labels — provider:* and area: agent/ai/
+# extensions/security — which propagate to the target. Run the sync
+# script first to filter them out):
 # (Requires `gh` CLI authenticated to project-oxi with labels:write
 #  on each target repo.)
 #
+# oxiline is private and not yet published — excluded from sync.
 # Re-color / re-organize all labels on a repo with:
 #   gh label edit <name> --color <hex> --description "<text>" --repo project-oxi/<repo>
 

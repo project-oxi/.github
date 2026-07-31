@@ -32,6 +32,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
 |---------|-------------|-------|
 | [**oxinot**](https://github.com/project-oxi/oxinot) | Capture a thought before it's gone. Card-based note app for macOS. Plain `.md` files, rebuildable index, BM25 full-text search, CLI parity for agents. | Tauri 2 · React 19 · redb + tantivy |
 | [**oxipage**](https://github.com/project-oxi/oxipage) | Personal site generator for humans and AI agents. Blog, portfolio, novels, reviews from one CLI. 9 extensions, bilingual EN/KO. | Rust SSG · Axum console · embedded React SPA |
+| *oxiline* | _(private, in development)_ | — |
 
 
 ---
@@ -61,7 +62,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
            │         │  oxipage        │          │
 
            │         │ (consumer apps) │          │
-           │         └─────────────────┘          │
+                      plain-file storage
            │                                      │
            └──────────── all share ───────────────┘
                       OKLCH tokens
