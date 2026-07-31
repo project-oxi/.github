@@ -16,25 +16,41 @@
 #
 # (Requires `gh` CLI authenticated to project-oxi with labels:write
 #  on each target repo.)
+#
+# Re-color / re-organize all labels on a repo with:
+#   gh label edit <name> --color <hex> --description "<text>" --repo project-oxi/<repo>
 
 # ──────────────────────────── Type ────────────────────────────
-# What kind of change is this? (one per PR)
+# Why this PR or issue exists. Pick at most ONE per PR.
+# Color spectrum: green = new, red = broken/needs-attention, neutral = hygiene.
 
-- name: "type: feature"
-  color: "1f883d"
-  description: "New user-visible capability."
+- name: "type: enhancement"
+  color: "0e8a16"
+  description: "New user-visible capability or improvement."
 
 - name: "type: bug"
   color: "d73a4a"
   description: "Fix for a broken or incorrect behavior."
 
+- name: "type: regression"
+  color: "b60205"
+  description: "Used to work, now broken — deserves a hotfix."
+
+- name: "type: security"
+  color: "b60205"
+  description: "Security vulnerability or hardening change. See SECURITY.md."
+
+- name: "type: breaking"
+  color: "b60205"
+  description: "Breaking change requiring migration notes or major version bump."
+
+- name: "type: performance"
+  color: "5319e7"
+  description: "Performance, throughput, memory, or compile-time improvement (benchmarked)."
+
 - name: "type: refactor"
   color: "cfd3d7"
-  description: "Code change that neither fixes a bug nor adds a feature."
-
-- name: "type: perf"
-  color: "e99695"
-  description: "Performance improvement (benchmarked)."
+  description: "Code reorganization without behavior change."
 
 - name: "type: docs"
   color: "0075ca"
@@ -46,102 +62,75 @@
 
 - name: "type: chore"
   color: "cccccc"
-  description: "Tooling, CI, dependencies, or maintenance."
-
-- name: "type: build"
-  color: "bfd4f2"
-  description: "Build system or packaging change."
-
-- name: "type: ci"
-  color: "0e8a16"
-  description: "CI/CD pipeline change."
-
-- name: "type: breaking"
-  color: "b60205"
-  description: "Breaking change requiring migration notes."
+  description: "Tooling, CI, dependencies, or maintenance with no user-visible change."
 
 - name: "type: revert"
   color: "ffffff"
   description: "Reverts a previous commit."
 
 # ──────────────────────────── Area ────────────────────────────
-# What code area is affected? (one per PR; project-specific scopes
-# can be added per-repo but should stay lowercase + colon-prefixed)
+# What code area is affected. Project-agnostic — applies to every repo.
+# Project-specific scopes (e.g. `area: capture` for oxinot) are added
+# per-repo, not here. Pick at most ONE per PR.
 
 - name: "area: core"
-  color: "fbca04"
+  color: "1d76db"
   description: "Core runtime / engine crate."
 
 - name: "area: cli"
-  color: "fbca04"
-  description: "Command-line interface."
+  color: "1d76db"
+  description: "Command-line interface or subcommand."
 
 - name: "area: tui"
-  color: "fbca04"
-  description: "Terminal user interface (Ratatui, vtui)."
+  color: "1d76db"
+  description: "Terminal user interface (Ratatui, vtui, Textual)."
 
 - name: "area: web"
-  color: "fbca04"
-  description: "Web frontend (React, Tailwind, Astro)."
+  color: "1d76db"
+  description: "Web frontend (React, Tailwind, Astro, Vite)."
 
 - name: "area: desktop"
-  color: "fbca04"
+  color: "1d76db"
   description: "Desktop / Tauri shell."
 
 - name: "area: api"
-  color: "fbca04"
-  description: "Public API surface."
+  color: "1d76db"
+  description: "Public API surface (HTTP, RPC, gRPC, MCP, A2A)."
 
 - name: "area: lsp"
-  color: "fbca04"
+  color: "1d76db"
   description: "Language Server Protocol integration."
 
 - name: "area: sdk"
-  color: "fbca04"
+  color: "1d76db"
   description: "Software Development Kit."
 
-- name: "area: agent"
-  color: "fbca04"
-  description: "Agent runtime, sessions, skills."
+- name: "area: browser"
+  color: "1d76db"
+  description: "Browser engine (HTML/JS parsing, layout, CDP)."
 
-- name: "area: mcp"
-  color: "fbca04"
-  description: "Model Context Protocol integration."
-
-- name: "area: a2a"
-  color: "fbca04"
-  description: "Agent-to-Agent protocol integration."
-
-- name: "area: cdp"
-  color: "fbca04"
-  description: "Chrome DevTools Protocol (browser automation)."
-
-- name: "area: capture"
-  color: "fbca04"
-  description: "Note capture overlay (oxinot)."
-
-- name: "area: fts"
-  color: "fbca04"
-  description: "Full-text search index."
-
-- name: "area: docs"
-  color: "fbca04"
-  description: "Documentation in doc/ or DESIGN.md."
+- name: "area: db"
+  color: "1d76db"
+  description: "Database, storage, indexing, FTS, schema migration."
 
 - name: "area: ci"
   color: "fbca04"
-  description: "Continuous integration."
+  description: "Continuous integration (GitHub Actions, dependabot, supply chain)."
+
+- name: "area: docs"
+  color: "fbca04"
+  description: "Documentation (README, doc/, AGENTS.md, CONTRIBUTING, RFCs, design docs)."
 
 - name: "area: design"
   color: "fbca04"
   description: "Design tokens, components, OKLCH system."
 
 # ──────────────────────────── Status ────────────────────────────
-# Triage state. Applied by maintainers.
+# Triage state. Applied by maintainers (and sometimes contributors).
 
 - name: "status: needs-triage"
   color: "ededed"
-  description: "Awaiting maintainer review and labeling."
+  description: "Awaiting maintainer review and reproduction."
 
 - name: "status: needs-design"
   color: "d4c5f9"
@@ -149,15 +138,23 @@
 
 - name: "status: needs-security-review"
   color: "b60205"
-  description: "Affects security-sensitive area (SECURITY.md §Security-Sensitive Areas)."
+  description: "Affects security-sensitive area (see SECURITY.md)."
+
+- name: "status: needs-info"
+  color: "e4e669"
+  description: "Reporter must provide more information before triage."
 
 - name: "status: blocked"
   color: "ee0701"
-  description: "Waiting on an external dependency or decision."
+  description: "Cannot progress — waiting on external dependency or decision."
 
 - name: "status: in-progress"
   color: "fef2c0"
   description: "Currently being worked on."
+
+- name: "status: review"
+  color: "1d76db"
+  description: "PR is open and awaiting code review."
 
 - name: "status: wontfix"
   color: "ffffff"
@@ -165,29 +162,41 @@
 
 - name: "status: duplicate"
   color: "cccccc"
-  description: "Duplicates an existing issue."
+  description: "Duplicates an existing issue or PR."
 
 # ──────────────────────────── Priority ────────────────────────────
+# Urgency. Applied by maintainers. Skip when unclear.
+
+- name: "priority: critical"
+  color: "b60205"
+  description: "Drop everything — production breakage or CVE."
 
 - name: "priority: high"
-  color: "b60205"
-  description: "High urgency — fix or address promptly."
+  color: "d93f0b"
+  description: "Important — should land in the next release."
 
 - name: "priority: medium"
   color: "fbca04"
-  description: "Medium urgency."
+  description: "Normal — addressed in regular cadence."
 
 - name: "priority: low"
   color: "0e8a16"
-  description: "Low urgency / nice-to-have."
+  description: "Backlog — whenever bandwidth allows."
 
 # ──────────────────────────── Difficulty ────────────────────────────
-# Optional good-first-issue / help-wanted markers
+# Optional good-first-issue / help-wanted markers.
 
 - name: "good first issue"
   color: "7057ff"
-  description: "Suitable for first-time contributors."
+  description: "Good for newcomers — small scope, clear acceptance criteria."
 
 - name: "help wanted"
   color: "008672"
-  description: "Maintainer welcomes external contributions."
+  description: "Extra attention is wanted — maintainer bandwidth is limited."
+
+# ──────────────────────────── Release ────────────────────────────
+# Used to flag PRs that must ship together.
+
+- name: "release"
+  color: "7057ff"
+  description: "Marks a release-bound change."

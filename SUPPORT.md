@@ -8,7 +8,7 @@ The project-oxi community communicates primarily through GitHub. There is no Dis
 |------|-------|
 | **Bug report** | Open an Issue on the affected repository (e.g. `oxicode`, `oxios`, `oxinot`) |
 | **Feature request** | Open an Issue with the `enhancement` label |
-| **How do I…?** | Open a Discussion in the affected repository's **Q&A** category |
+| **How do I…?** | Open a Discussion on the affected repository |
 | **Security vulnerability** | Email **a7garden@icloud.com** — do NOT file a public issue |
 | **Code of Conduct violation** | Email **a7garden@icloud.com** |
 | **Design system questions** | See [`DESIGN.md`](./DESIGN.md); open a Discussion if not covered |
@@ -45,4 +45,3 @@ For commercial support, custom development, or consulting engagements, email **a
 - **UI strings** — Korean is welcome in oxipage, oxinot, oxiline, oxios (where the audience is bilingual)
 - **Issue / discussion body** — either English or Korean is fine
 
-<!-- Maintainer note: GitHub Discussions is enabled on all 5 org repos. The Q&A category referenced above must be added once per repo via the web UI (Settings → General → Discussions → Categories → New category, name: "Q&A", format: Question/Answer). GitHub does not expose category creation via the API. -->
