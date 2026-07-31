@@ -3,11 +3,9 @@
 # This file is consumed by GitHub to display sponsor buttons on every
 # repository under the project-oxi organization.
 #
-# GitHub Sponsors (primary): https://github.com/sponsors/a7garden
-# Custom PayPal URL: https://paypal.me/a7garden
+# Sponsor: https://github.com/sponsors/a7garden
 #
 # Format reference:
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
 
 github: [a7garden]
-paypal_custom: ["https://paypal.me/a7garden"]
