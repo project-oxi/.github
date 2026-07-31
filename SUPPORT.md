@@ -9,8 +9,8 @@ The project-oxi community communicates primarily through GitHub. There is no Dis
 | **Bug report** | Open an Issue on the affected repository (e.g. `oxicode`, `oxios`, `oxinot`) |
 | **Feature request** | Open an Issue with the `enhancement` label |
 | **How do I…?** | Open a Discussion in the affected repository's **Q&A** category |
-| **Security vulnerability** | Email **security@a7garden.dev** — do NOT file a public issue |
-| **Code of Conduct violation** | Email **security@a7garden.dev** |
+| **Security vulnerability** | Email **a7garden@icloud.com** — do NOT file a public issue |
+| **Code of Conduct violation** | Email **a7garden@icloud.com** |
 | **Design system questions** | See [`DESIGN.md`](./DESIGN.md); open a Discussion if not covered |
 
 ## Before opening an issue
@@ -28,7 +28,7 @@ The project-oxi community communicates primarily through GitHub. There is no Dis
 
 ## Response time
 
-The project is maintained by a single team on a best-effort basis. We aim to:
+The project is maintained by a **single maintainer** on a best-effort basis. We aim to:
 
 - Acknowledge new issues within **7 days**
 - Triage and label within **14 days**
@@ -37,7 +37,7 @@ There is no guaranteed resolution timeline. Critical bugs and security issues ar
 
 ## Commercial / consulting support
 
-For commercial support, custom development, or consulting engagements, email **security@a7garden.dev** with the subject line starting with `[Commercial]`.
+For commercial support, custom development, or consulting engagements, email **a7garden@icloud.com** with the subject line starting with `[Commercial]`.
 
 ## Language
 

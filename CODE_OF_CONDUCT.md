@@ -15,7 +15,7 @@ Examples of behavior that contributes to a positive environment for our communit
 - Giving and gracefully accepting constructive feedback
 - Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
 - Focusing on what is best not just for us as individuals, but for the overall community
-- Writing code and comments in English; UI strings in Korean are welcome in oxipage, oxinot, oxiline, oxios
+
 
 Examples of unacceptable behavior:
 
@@ -37,7 +37,7 @@ This Code of Conduct applies within all project-oxi community spaces — GitHub 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at **security@a7garden.dev**.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at **a7garden@icloud.com**.
 
 All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 

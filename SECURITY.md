@@ -19,7 +19,7 @@ Each repository's `CHANGELOG.md` and tags are the source of truth for what is "l
 
 **Do NOT file a public GitHub issue for security vulnerabilities.**
 
-Email **security@a7garden.dev** with:
+Email **a7garden@icloud.com** with:
 
 1. **Description** — what the vulnerability is and which component is affected (e.g. `oxicode`, `oxibrowser-core`, `oxios-supervisor`).
 2. **Reproduction** — minimal steps, code snippet, or proof-of-concept. A failing test or `cargo run` command is ideal.
@@ -39,7 +39,7 @@ We follow [coordinated disclosure](https://docs.github.com/en/code-security/secu
 
 ## Security Tooling
 
-Each Rust repo runs the following in CI:
+Each Rust repo **should** run the following in CI:
 
 - **`cargo audit`** — RustSec Advisory Database scan on every push
 - **`cargo deny`** — license + ban-list + supply-chain check
@@ -56,8 +56,5 @@ These components handle credentials, user data, or agent execution paths and war
 - **oxinot** — capture overlay, on-disk note encryption (when enabled), FTS index
 - **oxipage** — local Axum console on `127.0.0.1` (no auth by design — do not expose to network)
 
-If your PR touches any of these, request a security review by emailing **security@a7garden.dev**.
+If your PR touches any of these, request a security review by emailing **a7garden@icloud.com**.
 
-## Hall of Fame
-
-We maintain a public list of reporters who have helped us fix vulnerabilities (with their consent). To be added, include your preferred name and link in your initial report.

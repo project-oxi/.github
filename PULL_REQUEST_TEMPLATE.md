@@ -35,7 +35,7 @@
 - [ ] `CHANGELOG.md` entry added under `## [Unreleased]`
 - [ ] `doc/` updated (if applicable)
 - [ ] `DESIGN.md` in `project-oxi/.github` updated (if design tokens changed)
-- [ ] `oxi-design-system` skill updated (if component patterns changed)
+
 
 ## Breaking Changes
 

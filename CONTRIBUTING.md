@@ -4,11 +4,11 @@ Thank you for your interest in contributing. This guide covers all repositories 
 
 ## Code of conduct
 
-All participation is governed by [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md). By signing off on any commit, you agree to abide by it. Enforcement contact: **security@a7garden.dev**.
+All participation is governed by [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md). By signing off on any commit, you agree to abide by it. Enforcement contact: **a7garden@icloud.com**.
 
 ## Reporting security vulnerabilities
 
-**Do NOT file a public issue for security bugs.** Email **security@a7garden.dev** with a description and reproduction. See [`SECURITY.md`](./SECURITY.md) for the full policy, response SLAs, and supported versions.
+**Do NOT file a public issue for security bugs.** Email **a7garden@icloud.com** with a description and reproduction. See [`SECURITY.md`](./SECURITY.md) for the full policy, response SLAs, and supported versions.
 
 ---
 
@@ -117,13 +117,13 @@ cargo fmt --all -- --check && \
 
 ### 8. PR template checklist
 
-Use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md) — fill in Summary, Motivation, Changes, Testing (with command output), and Breaking Changes.
+Use the [pull request template](./PULL_REQUEST_TEMPLATE.md) — fill in Summary, Motivation, Changes, Testing (with command output), and Breaking Changes.
 
 ---
 
 ## Design decisions
 
-If your change affects user-visible behavior, CLI flags, data model, or design tokens, update the relevant `doc/` file in the target repo. For projects under the unified design system (oxinot, oxipage, oxios, oxiline, oxibrowser), also update [`DESIGN.md`](./DESIGN.md) in this `.github` repo and the `oxi-design-system` skill in your agent's managed-skills directory.
+If your change affects user-visible behavior, CLI flags, data model, or design tokens, update the relevant `doc/` file in the target repo. For projects under the unified design system (oxinot, oxipage, oxios, oxiline, oxibrowser), also update [`DESIGN.md`](./DESIGN.md) in this `.github` repo.
 
 ---
 
@@ -141,7 +141,7 @@ See each repo's `LICENSE` / `LICENSE.md` file for the exact text.
 ## Communication
 
 - **Bug reports & features**: GitHub Issues on the target repository
-- **Security**: security@a7garden.dev (do not file public issues)
+- **Security**: a7garden@icloud.com (do not file public issues)
 - **General questions**: GitHub Discussions on the target repository
 
 No Discord, Slack, or other chat channels. Use the issue tracker.
