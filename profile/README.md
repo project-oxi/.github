@@ -93,7 +93,7 @@ Every project in the ecosystem follows one visual language: **ink-on-paper minim
 | Borders | `box-shadow` on inputs (no layout shift), hairline `border-line` elsewhere |
 | Philosophy | Weight-led hierarchy, information density over decoration |
 
-**Full specification:** [`DESIGN.md`](./DESIGN.md) (1,100+ lines — the single source of truth for the oxi brand across all projects)
+**Full specification:** [`DESIGN.md`](../DESIGN.md) (1,100+ lines — the single source of truth for the oxi brand across all projects)
 
 ---
 
