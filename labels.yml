@@ -1,13 +1,21 @@
 # Labels for the project-oxi organization.
 #
-# This file is consumed by a label-sync workflow (e.g. github-actionsbot
-# / label-sync-action / github-label-sync). Apply across every public
-# repo under project-oxi/* so the same workflow applies everywhere.
+# Single source of truth for label names, colors, and descriptions.
+# Apply once per repo with `gh label clone` — no CI, no secrets, no
+# workflow to maintain. Re-run after editing this file.
 #
-# Convention: every label has an emoji prefix that conveys its purpose
-# at a glance. Required labels are applied by a triager bot on first
-# triage; optional labels are applied by contributors per the
-# CONTRIBUTING.md policy (one `area:*` + one `type:*`).
+# Strategy: keep one repo (e.g. project-oxi/oxicode) as the "labels
+# template". This file documents what should be in that template repo.
+#
+#   # Initial setup: ensure oxicode has the canonical labels, then clone
+#   # to the other four.
+#   REPOS="oxibrowser oxios oxinot oxipage"
+#   for r in $REPOS; do
+#     gh label clone project-oxi/oxicode --repo "project-oxi/$r"
+#   done
+#
+# (Requires `gh` CLI authenticated to project-oxi with labels:write
+#  on each target repo.)
 
 # ──────────────────────────── Type ────────────────────────────
 # What kind of change is this? (one per PR)
