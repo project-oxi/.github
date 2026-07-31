@@ -44,3 +44,5 @@ For commercial support, custom development, or consulting engagements, email **a
 - **Code, comments, commit messages, PR descriptions** — English
 - **UI strings** — Korean is welcome in oxipage, oxinot, oxiline, oxios (where the audience is bilingual)
 - **Issue / discussion body** — either English or Korean is fine
+
+<!-- Maintainer note: GitHub Discussions is enabled on all 5 org repos. The Q&A category referenced above must be added once per repo via the web UI (Settings → General → Discussions → Categories → New category, name: "Q&A", format: Question/Answer). GitHub does not expose category creation via the API. -->
