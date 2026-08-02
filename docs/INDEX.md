@@ -34,7 +34,8 @@
 
 ## 자동화
 
-- **나이틀리 인테그리티 잡**: `project-oxi/.omp/auto-task-nightly-integrity.md` → `/tmp/oxi-reports/`.
+- **나이틀리 인테그리티 잡** (매일 03:00 KST): `project-oxi/.omp/auto-task-nightly-integrity.md` — 5개 레포 헬스·자동수정·보고, 리포트 `/tmp/oxi-reports/`.
+- **HN 데일리 번역 잡** (매일 05:30 KST): `project-oxi/.omp/auto-task-hackernews-daily.md` — 해커뉴스 Top 5 원문 → 한국어 번역 HTML 이메일.
 
 ## 네이밍 히스토리
 
