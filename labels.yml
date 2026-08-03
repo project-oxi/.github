@@ -69,7 +69,7 @@
 
 # ──────────────────────────── Area ────────────────────────────
 # What code area is affected. Project-agnostic — applies to every repo.
-# Project-specific scopes (e.g. `area: capture` for oxinot) are added
+# Project-specific scopes (e.g. `area: capture` for oximemo) are added
 # per-repo, not here. Pick at most ONE per PR.
 
 - name: "area: core"

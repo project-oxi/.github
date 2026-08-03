@@ -6,7 +6,7 @@ The project-oxi community communicates primarily through GitHub. There is no Dis
 
 | Need | Where |
 |------|-------|
-| **Bug report** | Open an Issue on the affected repository (e.g. `oxicode`, `oxios`, `oxinot`) |
+| **Bug report** | Open an Issue on the affected repository (e.g. `oxicode`, `oxios`, `oximemo`) |
 | **Feature request** | Open an Issue with the `enhancement` label |
 | **How do I…?** | Open a Discussion on the affected repository |
 | **Security vulnerability** | Email **a7garden@icloud.com** — do NOT file a public issue |
@@ -42,6 +42,6 @@ For commercial support, custom development, or consulting engagements, email **a
 ## Language
 
 - **Code, comments, commit messages, PR descriptions** — English
-- **UI strings** — Korean is welcome in oxipage, oxinot, oxiline, oxios (where the audience is bilingual)
+- **UI strings** — Korean is welcome in oxibuilder, oximemo, oxiline, oxios (where the audience is bilingual)
 - **Issue / discussion body** — either English or Korean is fine
 

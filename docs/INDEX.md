@@ -26,9 +26,9 @@
 
 | 레포 (로컬) | 레포명 | 문서 위치 |
 |---|---|---|
-| `oxi/` | oxiCode | `docs/` |
+| `oxicode/` | oxiCode | `docs/` |
 | `oximemo/` | oxiMemo | `docs/` + `doc/` |
-| `oxipage/` | oxiBuilder | `docs/` + `doc/` |
+| `oxibuilder/` | oxiBuilder | `docs/` + `doc/` |
 | `oxios/` | oxios | `docs/` + `web/` |
 | `oxibrowser/` | oxiBrowser | `docs/` |
 
@@ -39,4 +39,4 @@
 
 ## 네이밍 히스토리
 
-`oxi`→oxiCode · `oxiNot`→oxiMemo · `oxiPage`→oxiBuilder (GitHub 레포명 변경 2026-08-02; 로컬 경로는 일부 구명칭 유지).
+`oxi`→oxiCode · `oxiNot`→oxiMemo · `oxiPage`→oxiBuilder (GitHub 레포명 + 로컬 경로 모두 변경 완료 2026-08-02~03; `oxinot-homepage` 리포는 별도 마케팅 사이트로 구명칭 유지).

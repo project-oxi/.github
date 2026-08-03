@@ -1,6 +1,6 @@
 # Oxi Design System
 
-> Unified design specification for the **oxi** family: `oxinot`, `oxipage`, `oxios`.
+> Unified design specification for the **oxi** family: `oximemo`, `oxibuilder`, `oxios`.
 > Canonical source of truth — each project's own design docs are now references into this file.
 > Version: **v1.0** · Date: 2026-07-31
 
@@ -31,13 +31,13 @@ darkModeTrigger: ".dark class"
 semanticTokenRule: "components consume Tailwind utilities only; no dark: variant; no [data-theme=dark]"
 
 # ── Per-project overrides ──
-oxinot:
+oximemo:
   targetPlatform: macos-native
   framework: tauri-2-react
   virtualScroll: "@tanstack/react-virtual"
   globalShortcut: true
   overlayWarmup: true
-oxipage:
+oxibuilder:
   targetPlatform: web
   isMonorepo: true
   themeTriggerLegacy: "[data-theme] (migrating to .dark)"
@@ -77,13 +77,13 @@ Config · [Design Farmer re-entry](#config)
 
 ## 0. How to read this document
 
-**Three projects, one system.** `oxinot` (macOS note app), `oxipage` (multi-extension personal site), `oxios` (agent operating system dashboard) share an underlying design grammar but each owns a distinct surface identity. This document defines the shared grammar; per-project customizations live in §10.
+**Three projects, one system.** `oximemo` (macOS note app), `oxibuilder` (multi-extension personal site), `oxios` (agent operating system dashboard) share an underlying design grammar but each owns a distinct surface identity. This document defines the shared grammar; per-project customizations live in §10.
 
 **Priority of authority.** When this document disagrees with an existing project doc, this document wins. Out-of-date claims in project docs (e.g. accent colors, dark-mode triggers) must be rewritten to point here.
 
 **Audience.** Engineers (component implementations), designers (new screens, audits), AI agents (the "Agent Prompt Guide" appendix in §10).
 
-**Gaps.** oxinot's `doc/DESIGN.md` defines a UI stack (§7.1) and a 6-hue OKLCH label palette (§7.7) but does **not** specify a font, a type scale, or a sidebar pattern — those are defined here for the first time. oxios defines typography around Geist (10 references across 3 files in `web/src/`); its migration to SUIT is straightforward and tracked in §12.3.
+**Gaps.** oximemo's `doc/DESIGN.md` defines a UI stack (§7.1) and a 6-hue OKLCH label palette (§7.7) but does **not** specify a font, a type scale, or a sidebar pattern — those are defined here for the first time. oxios defines typography around Geist (10 references across 3 files in `web/src/`); its migration to SUIT is straightforward and tracked in §12.3.
 
 ---
 
@@ -95,15 +95,15 @@ Config · [Design Farmer re-entry](#config)
 |------|------|
 | **Calm authority** | Information density over decoration; nothing competes with the work. |
 | **Ink on paper** | Neutral surfaces, hairline borders, weight-led hierarchy — color carries meaning, never decoration. |
-| **Native where it lives** | oxinot follows macOS overlays · oxipage follows web shell + canvas · oxios follows dense dashboard patterns. |
+| **Native where it lives** | oximemo follows macOS overlays · oxibuilder follows web shell + canvas · oxios follows dense dashboard patterns. |
 | **Functional hues** | Color is data, not branding. Six semantic hues label notes, status, and chrome. No single "brand accent." |
 
 ### 1.2 Design principles
 
-1. **Capture is friction-free.** (from oxinot) The fastest path wins; the design must never make a user wait.
-2. **Files are the source of truth.** (from oxinot) CSS variables are just aliases of semantic tokens. Never hand-edit a primitive in a component.
-3. **Less is more.** (from oxinot) No decorative chrome, no AI-default gradients, no Inter-as-identity.
-4. **Paper and ink.** (from oxipage) Neutral surfaces with one quiet accent — but the accent is *a palette of six*, not a single hue.
+1. **Capture is friction-free.** (from oximemo) The fastest path wins; the design must never make a user wait.
+2. **Files are the source of truth.** (from oximemo) CSS variables are just aliases of semantic tokens. Never hand-edit a primitive in a component.
+3. **Less is more.** (from oximemo) No decorative chrome, no AI-default gradients, no Inter-as-identity.
+4. **Paper and ink.** (from oxibuilder) Neutral surfaces with one quiet accent — but the accent is *a palette of six*, not a single hue.
 5. **State is calm.** (from oxios) Status colors earn their weight by meaning; nothing else gets a hue.
 
 ### 1.3 What this rules out
@@ -122,7 +122,7 @@ Config · [Design Farmer re-entry](#config)
 - `.dark` class as the single light/dark trigger.
 - Two-tier semantic tokens: components consume `surface`/`text`/`border` only.
 - SUIT (UI body) + SUITE (UI headline) as the unified Korean type pairing; Latin `Geist Mono` for code.
-- Per-project console chrome accent *only* for oxipage's legacy sidebar (kept v1, removed v2; see §10.2).
+- Per-project console chrome accent *only* for oxibuilder's legacy sidebar (kept v1, removed v2; see §10.2).
 
 ---
 
@@ -161,7 +161,7 @@ src/
 └── components/              ← consumes Tailwind utilities only
 ```
 
-`oxipage/web/src/shared/tokens.css` and `oxios/web/src/index.css` are the v0 anchors; their semantic tokens are migrated to the layout above (see §12). `oxinot/apps/desktop/src/lib/color.ts` continues to host the OKLCH label palette + clamp helpers.
+`oxibuilder/web/src/shared/tokens.css` and `oxios/web/src/index.css` are the v0 anchors; their semantic tokens are migrated to the layout above (see §12). `oximemo/apps/desktop/src/lib/color.ts` continues to host the OKLCH label palette + clamp helpers.
 
 ### 2.3 Naming convention
 
@@ -178,7 +178,7 @@ src/
 
 ### 3.1 Why OKLCH
 
-Inherited from oxinot §7.7 and oxipage §3.2:
+Inherited from oximemo §7.7 and oxibuilder §3.2:
 
 - **Perceptual uniformity.** Same L → same perceived brightness, hue-independent.
 - **CSS-native.** Modern WebKit (Tauri), Blink (Vite), and all evergreen browsers render `oklch()` directly.
@@ -281,7 +281,7 @@ Light theme (default `:root`):
   --color-border-strong: oklch(82% 0.008 265);
   --color-focus-ring:  oklch(0.45 0.04 265);
 
-  /* Functional hue labels (oxinot §7.7) */
+  /* Functional hue labels (oximemo §7.7) */
   --color-hue-red:    oklch(0.75 0.15 25);
   --color-hue-amber:  oklch(0.75 0.15 75);
   --color-hue-green:  oklch(0.75 0.13 145);
@@ -364,7 +364,7 @@ Dark theme (`.dark`):
 
 > **L inversion rule (scoped per §3.1):** For neutrals and label hues, dark-mode adjusts L only. Status hues are APCA-optimized per-mode and may shift C/H — the verbatim oxios dashboard values are authoritative, not derived by inversion.
 
-### 3.4 Custom OKLCH input (oxinot §7.7)
+### 3.4 Custom OKLCH input (oximemo §7.7)
 
 Users may enter raw OKLCH values. UI clamps to perceptually safe ranges:
 
@@ -401,7 +401,7 @@ Stored verbatim in frontmatter as `color = "oklch(L C H)"`. Parse failures fall 
 - **SUIT** = UI 본문용 폰트. 본고딕-based, optimized for long Korean passages at small sizes (10–16px) with even rhythm and high x-height. Variable wght 100–900.
 - **SUITE** = UI 헤드라인 타입페이스. Geometric construction (정원·직각·직선·사선), tighter proportions, designed for display sizes (≥ 20px). Variable wght 300–900.
 
-Using both means Korean surfaces stay inside a single typographic family — readable at body sizes via SUIT, distinctive at headline sizes via SUITE — without introducing a serif/sans contrast that would compete with the "ink on paper" tone. oxipage's old Fraunces display serif is removed in this unification (see §12.2).
+Using both means Korean surfaces stay inside a single typographic family — readable at body sizes via SUIT, distinctive at headline sizes via SUITE — without introducing a serif/sans contrast that would compete with the "ink on paper" tone. oxibuilder's old Fraunces display serif is removed in this unification (see §12.2).
 
 | Role | Family | Notes |
 |------|--------|-------|
@@ -492,8 +492,8 @@ Both SUIT and SUITE share the same Latin fallback. SUITE never falls back to a s
 
 | Project | Body | Headline | Note |
 |---------|------|----------|------|
-| oxinot | SUIT | SUITE | macOS native overlays use `-apple-system` for system menu text; in-app UI uses SUIT. No prior font, no migration. |
-| oxipage | SUIT (migrating from Pretendard) | SUITE (migrating from Fraunces) | See §12.2 — Pretendard→SUIT, Fraunces→SUITE. |
+| oximemo | SUIT | SUITE | macOS native overlays use `-apple-system` for system menu text; in-app UI uses SUIT. No prior font, no migration. |
+| oxibuilder | SUIT (migrating from Pretendard) | SUITE (migrating from Fraunces) | See §12.2 — Pretendard→SUIT, Fraunces→SUITE. |
 | oxios | SUIT (migrating from Geist) | SUITE (new, hero titles only) | **10 Geist references** across 3 files (`index.css`, `tokens/index.ts`, `editor-prefs.ts`) — no component `.tsx` files reference Geist directly. v1 keeps Geist as fallback. See §12.3. |
 
 ---
@@ -518,7 +518,7 @@ Default rhythm: `gap-2` (8px) inside components, `gap-4` (16px) between sections
 | `--radius-2xl` | 1.25rem (20px) | Modals, hero surfaces |
 | `--radius-full` | 9999px | Badges, pills, avatars |
 
-oxinot cards use `--radius-lg`. oxios buttons use `--radius-md`. oxipage keeps `--radius-md` for v1 cards.
+oximemo cards use `--radius-lg`. oxios buttons use `--radius-md`. oxibuilder keeps `--radius-md` for v1 cards.
 
 ### 5.2.1 Component → radius mapping
 
@@ -559,7 +559,7 @@ Every component MUST reference a radius tier explicitly — never a raw `px` val
 }
 ```
 
-**Why explicit tokens per component?** oxinot, oxipage, and oxios each have different `radiusTone` preferences (oxios=rounded, oxipage=soft, oxinot=native). Pointing components at tier tokens (`--card-radius` → `--radius-lg`) instead of hardcoding `12px` means a project can shift the entire card radius by changing one tier value, without touching any component file.
+**Why explicit tokens per component?** oximemo, oxibuilder, and oxios each have different `radiusTone` preferences (oxios=rounded, oxibuilder=soft, oximemo=native). Pointing components at tier tokens (`--card-radius` → `--radius-lg`) instead of hardcoding `12px` means a project can shift the entire card radius by changing one tier value, without touching any component file.
 
 ### 5.3 Elevation
 
@@ -571,7 +571,7 @@ Every component MUST reference a radius tier explicitly — never a raw `px` val
 | `shadow-lg` | `0 12px 24px oklch(0% 0 0 / 0.10), 0 4px 8px oklch(0% 0 0 / 0.06)` | `0 12px 24px oklch(0% 0 0 / 0.50), 0 4px 8px oklch(0% 0 0 / 0.40)` | Modals, drawers |
 | Focus | `outline: 2px solid var(--color-focus-ring); outline-offset: 2px` | same | All interactive elements **except form inputs/selects** (those use `--input-shadow-focus` per §6.4) |
 
-Dark mode raises alpha significantly (oxipage §3.3 finding: shadows otherwise vanish on dark).
+Dark mode raises alpha significantly (oxibuilder §3.3 finding: shadows otherwise vanish on dark).
 
 ---
 
@@ -634,7 +634,7 @@ Three variants — choose by visual intent, not arbitrarily:
 
 Card sub-components: `CardHeader` (border-bottom `border-line/50`, `px-4 py-3`), `CardTitle` (`font-semibold text-text`), `CardDescription` (`text-text-muted text-sm`), `CardContent` (`p-4`), `CardFooter` (border-top `border-line/50`, `px-4 py-3`, flex-end).
 
-Card anatomy (oxinot): optional 2px left bar `bg-hue-{name}` for labeled notes (oxinot §7.3). Hover on interactive cards: `hover:shadow-md transition-shadow`. oxinot grid uses `grid-cols-[repeat(auto-fill,minmax(240px,1fr))]`.
+Card anatomy (oximemo): optional 2px left bar `bg-hue-{name}` for labeled notes (oximemo §7.3). Hover on interactive cards: `hover:shadow-md transition-shadow`. oximemo grid uses `grid-cols-[repeat(auto-fill,minmax(240px,1fr))]`.
 
 ### 6.4 Inputs & Forms
 
@@ -855,10 +855,10 @@ Touch target minimum: **44 × 44px**.
 
 | Project | Pattern |
 |---------|---------|
-| oxinot card grid | `grid-cols-[repeat(auto-fill,minmax(240px,1fr))]` (§7.2) — uniform height, virtualized via `@tanstack/react-virtual` |
-| oxipage lobby — `list` | Single column, hairline separators, no motion |
-| oxipage lobby — `grid` | 1 / 2 / 3 columns responsive |
-| oxipage lobby — `canvas` | Floating cards; default drift amplitude 12px / period 14s; seed `stable-per-day` for stable positions |
+| oximemo card grid | `grid-cols-[repeat(auto-fill,minmax(240px,1fr))]` (§7.2) — uniform height, virtualized via `@tanstack/react-virtual` |
+| oxibuilder lobby — `list` | Single column, hairline separators, no motion |
+| oxibuilder lobby — `grid` | 1 / 2 / 3 columns responsive |
+| oxibuilder lobby — `canvas` | Floating cards; default drift amplitude 12px / period 14s; seed `stable-per-day` for stable positions |
 | oxios dashboard | 3-zone layout: sidebar + main + optional inspector panel |
 
 ### 7.3 Motion tokens
@@ -873,16 +873,16 @@ Touch target minimum: **44 × 44px**.
 }
 ```
 
-`prefers-reduced-motion: reduce` collapses all durations to 0 and disables drift/parallax/lift. oxipage canvas mode auto-falls-back to `grid`. oxinot capture overlay shows instantly.
+`prefers-reduced-motion: reduce` collapses all durations to 0 and disables drift/parallax/lift. oxibuilder canvas mode auto-falls-back to `grid`. oximemo capture overlay shows instantly.
 
-### 7.4 Captures & overlays (oxinot §6)
+### 7.4 Captures & overlays (oximemo §6)
 
 - Overlay warm-up: window created off-screen with `visible: true` so first show is **≤ 16ms**.
 - Open path: `Option`-double-tap → `capture:show` event → overlay becomes focused + ready.
 - Save path: input → `create_note` (Rust) → file written → overlay hidden → original focus restored. ≤ 50ms.
 - Always dismissible via `Esc`. Always restorable via the menu bar icon.
 
-### 7.5 Canvas drift (oxipage §3.6)
+### 7.5 Canvas drift (oxibuilder §3.6)
 
 ```ts
 type CanvasParams = {
@@ -903,7 +903,7 @@ Initial positions computed once per day via simple collision-avoidance pass (no 
 **`.dark` class on `<html>` is the single light/dark trigger.** `[data-theme="dark"]` is **deprecated** and must be migrated.
 
 ```ts
-// theme.ts — shared across oxipage + oxios; oxinot uses system-default override
+// theme.ts — shared across oxibuilder + oxios; oximemo uses system-default override
 export function applyTheme(theme: "light" | "dark") {
   document.documentElement.classList.toggle("dark", theme === "dark");
 }
@@ -963,7 +963,7 @@ If a brand theme is added later (e.g. "low-contrast", "color-blind safe"), use `
 
 Both selectors are orthogonal. The two-tier semantic-token system already absorbs both.
 
-### 8.5 Desktop (oxinot)
+### 8.5 Desktop (oximemo)
 
 Tauri WebKit. `tauri::Window` listens for `NSAppearanceChange` and emits `theme-changed`. JS applies `.dark` on `<html>` of the WebView. macOS menu bar icon flips automatically.
 
@@ -986,13 +986,13 @@ Tauri WebKit. `tauri::Window` listens for `NSAppearanceChange` and emits `theme-
 
 ### 9.2 Color independence
 
-- Status is always paired with **icon + label** (oxinot §7.7 OKLCH label bars also have shape variation).
+- Status is always paired with **icon + label** (oximemo §7.7 OKLCH label bars also have shape variation).
 - Hue labels on cards carry text + bar color (never color alone).
 - Hover and focus states use both `color` and `outline` / `box-shadow`.
 
 ### 9.3 Motion
 
-All decorative motion is disabled under `prefers-reduced-motion: reduce` (oxipage §3.6). Functional motion (e.g. capture overlay show) is preserved but with duration 0.
+All decorative motion is disabled under `prefers-reduced-motion: reduce` (oxibuilder §3.6). Functional motion (e.g. capture overlay show) is preserved but with duration 0.
 
 ### 9.4 Keyboard
 
@@ -1008,17 +1008,17 @@ OKLCH chroma is auto-clamped to sRGB for browsers that lack P3. When the user's 
 
 ## 10. Per-project surfaces
 
-### 10.1 oxinot — card grid + macOS overlays
+### 10.1 oximemo — card grid + macOS overlays
 
 - Stack: React 19 + TypeScript 5 + Vite, **Base UI** (headless) + Tailwind v4, `@tanstack/react-virtual` + `react-query`, zustand, `lucide-react`, `motion`.
 - Window chrome: `titleBarStyle: overlay`, custom toolbar with search inline (Arc/Linear pattern).
 - Dark mode: follows system + manual toggle (`toggleTheme()`). macOS menu bar icon flips.
-- Card grid: `repeat(auto-fill, minmax(240px, 1fr))`, uniform height, virtualized. (oxinot §7.2)
-- Hue label: optional 2px left bar (`bg-hue-{name}`); clamp OKLCH input to safe ranges (oxinot §7.7).
-- Status colors not used in the main app — oxinot has no "running/failed" semantics. They are defined in tokens for future use.
+- Card grid: `repeat(auto-fill, minmax(240px, 1fr))`, uniform height, virtualized. (oximemo §7.2)
+- Hue label: optional 2px left bar (`bg-hue-{name}`); clamp OKLCH input to safe ranges (oximemo §7.7).
+- Status colors not used in the main app — oximemo has no "running/failed" semantics. They are defined in tokens for future use.
 - **Typography:** SUIT (body), SUITE (display). No prior font in `doc/DESIGN.md` — this is the first definition.
 
-### 10.2 oxipage — multi-extension personal site
+### 10.2 oxibuilder — multi-extension personal site
 
 - Stack: React 19 + Vite + Tailwind v4, Radix primitives (a11y), shadcn-style local-owned components.
 - **Fonts: migrating** Pretendard → SUIT, Fraunces → SUITE. Pretendard/Fraunces references in `web/src/**` are replaced by SUIT/SUITE; line-heights re-tuned to SUIT's metrics (Pretendard and SUIT differ by ~2% x-height — verify the body line-height after swap).
@@ -1034,7 +1034,7 @@ OKLCH chroma is auto-clamped to sRGB for browsers that lack P3. When the user's 
 - Sidebar modes: Console / Knowledge / Chat share `sidebarPrimitives` (§6.5).
 - Density: `gap-2` (8px) is the default rhythm; section-level spacing is `gap-4` (16px).
 - **Fonts: migrating** Geist → SUIT (body), adding SUITE (display hero only). v1 keeps Geist as fallback. **Geist is referenced 10 times across 3 files** in `web/src/` (`index.css` ×5, `tokens/index.ts` ×2, `editor-prefs.ts` ×3); zero references in component `.tsx` files. Migration is low-risk — see §12.3.
-- **Theme trigger:** `.dark` retained (already correct). Sweep scattered `dark:` literals into semantic tokens. **Storage key:** currently `oxios-theme`; migrate to `oxi-theme` alongside oxipage (§12.2 step 2).
+- **Theme trigger:** `.dark` retained (already correct). Sweep scattered `dark:` literals into semantic tokens. **Storage key:** currently `oxios-theme`; migrate to `oxi-theme` alongside oxibuilder (§12.2 step 2).
 
 ### 10.4 Agent prompt guide
 
@@ -1064,13 +1064,13 @@ Quick token reference (paste into agent prompts):
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | 2026-07-31 | Unified `DESIGN.md` authored in `project-oxi/` | Three projects converge on one grammar; per-project docs now reference this. |
-| 2026-07-31 | Six-hue OKLCH label palette shared; site accent removed | oxinot §7.7 already defined this; oxios status uses the same hue families. No competing "brand color." |
+| 2026-07-31 | Six-hue OKLCH label palette shared; site accent removed | oximemo §7.7 already defined this; oxios status uses the same hue families. No competing "brand color." |
 | 2026-07-31 | `.dark` class is the single light/dark trigger | Tailwind/shadcn ecosystem default; `data-theme` selector deprecated. Two-tier semantic tokens absorb the switch. |
 | 2026-07-31 | `dark:` variant forbidden in component dirs | All theme reactivity flows through semantic tokens. Lint rule to enforce. |
-| 2026-07-31 | SUIT + SUITE as unified Korean type pairing — both sans, density contrast | oxipage migrates from Pretendard/Fraunces; oxinot + oxios adopt SUIT. No serif in the system. |
+| 2026-07-31 | SUIT + SUITE as unified Korean type pairing — both sans, density contrast | oxibuilder migrates from Pretendard/Fraunces; oximemo + oxios adopt SUIT. No serif in the system. |
 | 2026-07-31 | L inversion only — never adjust C for contrast | Maintains perceptual uniformity across themes. |
 | 2026-07-31 | Fonts loaded via jsDelivr (sun-typeface GitHub mirror), not Google Fonts | Confirmed via live CSS inspection: SUIT/SUITE have no Google Fonts presence. |
-| 2026-07-31 | oxinot typography defined for the first time | `doc/DESIGN.md` had no font/scale before; SUIT body + SUITE display + Geist Mono fills the gap. |
+| 2026-07-31 | oximemo typography defined for the first time | `doc/DESIGN.md` had no font/scale before; SUIT body + SUITE display + Geist Mono fills the gap. |
 | 2026-07-31 | oxios Geist → SUIT migration scoped accurately | 10 Geist references in 3 files (`index.css`, `tokens/index.ts`, `editor-prefs.ts`); zero in `.tsx` components. Low-risk migration. |
 | 2026-07-31 | `--color-interactive-primary` added as dedicated button fill | Label hues (L≈0.70) are too light for white-text button fills; dedicated token at L=0.45 (light) / L=0.70 (dark) passes APCA Lc 60. |
 | 2026-07-31 | `--color-status-*-on-subtle` text variants added | Status text on subtle surfaces needs darker (light) / lighter (dark) variants to meet Lc 75+ for 10px micro labels. |
@@ -1082,14 +1082,14 @@ Quick token reference (paste into agent prompts):
 
 ## 12. Migration plan
 
-### 12.1 oxinot (system light/dark → `.dark` parity, SUIT adoption)
+### 12.1 oximemo (system light/dark → `.dark` parity, SUIT adoption)
 
 1. **Tokens.** `apps/desktop/src/lib/color.ts` continues to host the OKLCH clamp helper. Move the hue palette into `tokens/primitives.css` so `bg-hue-*` utilities are available alongside.
 2. **Tauri WebView.** On `NSAppearanceChange`, emit a Tauri event; JS applies `.dark` to `<html>`. macOS title bar follows the OS setting.
 3. **Fonts.** Bundle SUIT + SUITE woff2 in `apps/desktop/src/assets/fonts/`. Declare `--font-sans` and `--font-display` per §4.3.
-4. **No `dark:` sweep required** — oxinot's React code base is small enough that dark mode is mostly system-driven.
+4. **No `dark:` sweep required** — oximemo's React code base is small enough that dark mode is mostly system-driven.
 
-### 12.2 oxipage (`[data-theme]` → `.dark`, Pretendard/Fraunces → SUIT/SUITE, legacy green sidebar)
+### 12.2 oxibuilder (`[data-theme]` → `.dark`, Pretendard/Fraunces → SUIT/SUITE, legacy green sidebar)
 
 1. **Tokens.** Replace `web/src/shared/tokens.css` with the tier layout from §2.2.
    - Move `[data-theme="light"]` → `:root`.
@@ -1101,7 +1101,7 @@ Quick token reference (paste into agent prompts):
    - **Line-height recalibration.** Pretendard's x-height is ~2% taller than SUIT. Sweep `line-height` values: previous 1.55 → 1.50 on body, 1.5 → 1.45 on small body. Visual diff required.
 5. **Component sweep.** Remove every `dark:` from `web/src/**/*.{tsx,ts}`. Replace `data-theme="dark"` listeners with `MutationObserver` on `class="dark"`.
 6. **Legacy compatibility.** During transition, mirror `.dark` → `[data-theme="dark"]` via a `MutationObserver` on `<html>`. Remove in next minor release.
-7. **Console chrome.** The hard-coded green sidebar (`#22c55e` etc.) is **kept for v1**; replaced with `bg-status-success` in v2. This is the only place oxipage keeps a project-local accent.
+7. **Console chrome.** The hard-coded green sidebar (`#22c55e` etc.) is **kept for v1**; replaced with `bg-status-success` in v2. This is the only place oxibuilder keeps a project-local accent.
 
 ### 12.3 oxios (`.dark` retained, scattered `dark:` → semantic tokens, Geist → SUIT, storage key unification)
 
@@ -1123,12 +1123,12 @@ Quick token reference (paste into agent prompts):
 
 | Step | Project | Verify |
 |------|---------|--------|
-| 1 | oxipage tokens rewrite | Smoke test lobby modes; APCA check on body/heading |
-| 2 | oxipage font migration | Visual diff against Pretendard baseline; line-height recalibration pass |
+| 1 | oxibuilder tokens rewrite | Smoke test lobby modes; APCA check on body/heading |
+| 2 | oxibuilder font migration | Visual diff against Pretendard baseline; line-height recalibration pass |
 | 3 | oxios lint rule + `dark:` sweep (per-component) | Component tests pass; visual snapshot diff |
 | 4 | oxios font migration (single-pass, 10 refs in 3 files) | Latin UI unchanged; SUIT loads from jsDelivr |
 | 5 | oxios storage key unification (`oxios-theme` → `oxi-theme`) | One-time migration on boot; old key deleted |
 | 6 | oxios editor-prefs Serif preset removed | No serif option remains in FONT_PRESETS |
-| 7 | oxinot `.dark` parity | Overlay warm-up timing unchanged |
-| 8 | oxinot SUIT adoption | macOS native chrome unaffected |
+| 7 | oximemo `.dark` parity | Overlay warm-up timing unchanged |
+| 8 | oximemo SUIT adoption | macOS native chrome unaffected |
 | 9 | Remove `[data-theme="dark"]` legacy observers across all projects | All consumers updated to `.dark` only |

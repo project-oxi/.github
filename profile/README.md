@@ -30,8 +30,8 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
 
 | Project | What it does | Stack |
 |---------|-------------|-------|
-| [**oxinot**](https://github.com/project-oxi/oxinot) | Capture a thought before it's gone. Card-based note app for macOS. Plain `.md` files, rebuildable index, BM25 full-text search, CLI parity for agents. | Tauri 2 · React 19 · redb + tantivy |
-| [**oxipage**](https://github.com/project-oxi/oxipage) | Personal site generator for humans and AI agents. Blog, portfolio, novels, reviews from one CLI. 9 extensions, bilingual EN/KO. | Rust SSG · Axum console · embedded React SPA |
+| [**oximemo**](https://github.com/project-oxi/oximemo) | Capture a thought before it's gone. Card-based note app for macOS. Plain `.md` files, rebuildable index, BM25 full-text search, CLI parity for agents. | Tauri 2 · React 19 · redb + tantivy |
+| [**oxibuilder**](https://github.com/project-oxi/oxibuilder) | Personal site generator for humans and AI agents. Blog, portfolio, novels, reviews from one CLI. 9 extensions, bilingual EN/KO. | Rust SSG · Axum console · embedded React SPA |
 | [**oxiline**](https://github.com/project-oxi/oxiline) | Time as a playhead. macOS native routine/day-management app. Rust core, Tauri v2, CLI-first. | Rust core · Tauri v2 · embedded SQLite |
 
 
@@ -58,8 +58,8 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
            │──────────────────┼──────────────────▶│
            │                  │                   │
            │         ┌────────┴────────┐          │
-           │         │  oxinot         │          │
-           │         │  oxipage        │          │
+           │         │  oximemo        │          │
+           │         │  oxibuilder      │          │
            │         │  oxiline        │          │
            │         │ (consumer apps) │          │
            │         └────────┬────────┘          │
@@ -72,7 +72,7 @@ Three pillars hold up the stack: a **coding agent**, a **browser**, and an **ope
                  plain-file storage
 ```
 - **oxios** embeds **oxibrowser** as its in-process browsing engine.
-- **oxinot**, **oxipage**, and **oxiline** are standalone apps that share the design system and agent-first conventions.
+- **oximemo**, **oxibuilder**, and **oxiline** are standalone apps that share the design system and agent-first conventions.
 
 
 ---

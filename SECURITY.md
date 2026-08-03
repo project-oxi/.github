@@ -7,8 +7,8 @@
 | **oxicode** | current `main` + latest release | ✅ |
 | **oxios** | current `main` + latest release | ✅ |
 | **oxibrowser** | current `main` + latest release | ✅ |
-| **oxinot** | current `main` + latest release | ✅ |
-| **oxipage** | current `main` + latest release | ✅ |
+| **oximemo** | current `main` + latest release | ✅ |
+| **oxibuilder** | current `main` + latest release | ✅ |
 | **oxiline** | pre-release | ✅ (best effort) |
 | **oxicleaner** | current `main` | ✅ (best effort) |
 | Older releases (n-1, n-2) | — | ❌ no backports |
@@ -53,8 +53,8 @@ These components handle credentials, user data, or agent execution paths and war
 - **oxicode** — multi-provider LLM API keys, session JSONL persistence
 - **oxios** — agent supervisor (fork/exec/wait/kill), MCP/A2A protocol handlers, Merkle audit trail, RBAC access manager
 - **oxibrowser** — TLS stack, JS engine (boa_engine), stealth fingerprinting
-- **oxinot** — capture overlay, on-disk note encryption (when enabled), FTS index
-- **oxipage** — local Axum console on `127.0.0.1` (no auth by design — do not expose to network)
+- **oximemo** — capture overlay, on-disk note encryption (when enabled), FTS index
+- **oxibuilder** — local Axum console on `127.0.0.1` (no auth by design — do not expose to network)
 
 If your PR touches any of these, request a security review by emailing **a7garden@icloud.com**.
 

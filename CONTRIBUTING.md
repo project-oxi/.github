@@ -1,6 +1,6 @@
 # Contributing to project-oxi
 
-Thank you for your interest in contributing. This guide covers all repositories under the **project-oxi** organization (oxicode, oxibrowser, oxios, oxinot, oxipage, oxiline, oxicleaner). Per-project exceptions are noted in each repo's own `CONTRIBUTING.md`.
+Thank you for your interest in contributing. This guide covers all repositories under the **project-oxi** organization (oxicode, oxibrowser, oxios, oximemo, oxibuilder, oxiline, oxicleaner). Per-project exceptions are noted in each repo's own `CONTRIBUTING.md`.
 
 ## Code of conduct
 
@@ -25,7 +25,7 @@ channel = "1.96"
 components = ["rustfmt", "clippy"]
 ```
 
-Projects at `rust-version = "1.85"` (oxiline) or `stable` (oxinot) may lag the floor — check their own `rust-toolchain.toml`.
+Projects at `rust-version = "1.85"` (oxiline) or `stable` (oximemo) may lag the floor — check their own `rust-toolchain.toml`.
 
 ### Pre-commit hooks
 
@@ -49,8 +49,8 @@ cargo test --workspace
 For projects with a frontend (web/desktop):
 
 ```bash
-cd web && bun install && bun run build   # oxipage
-cd apps/desktop && bun run build        # oxinot, oxiline
+cd web && bun install && bun run build   # oxibuilder
+cd apps/desktop && bun run build        # oximemo, oxiline
 ```
 
 ---
@@ -123,7 +123,7 @@ Use the [pull request template](./PULL_REQUEST_TEMPLATE.md) — fill in Summary,
 
 ## Design decisions
 
-If your change affects user-visible behavior, CLI flags, data model, or design tokens, update the relevant `doc/` file in the target repo. For projects under the unified design system (oxinot, oxipage, oxios, oxiline, oxibrowser), also update [`DESIGN.md`](./DESIGN.md) in this `.github` repo.
+If your change affects user-visible behavior, CLI flags, data model, or design tokens, update the relevant `doc/` file in the target repo. For projects under the unified design system (oximemo, oxibuilder, oxios, oxiline, oxibrowser), also update [`DESIGN.md`](./DESIGN.md) in this `.github` repo.
 
 ---
 
@@ -131,8 +131,8 @@ If your change affects user-visible behavior, CLI flags, data model, or design t
 
 By submitting a contribution, you agree to license your work under the same terms as the target repository:
 
-- **MIT** — oxicode, oxibrowser, oxios, oxipage, oxiline, oxicleaner
-- **MIT OR Apache-2.0** — oxinot
+- **MIT** — oxicode, oxibrowser, oxios, oxibuilder, oxiline, oxicleaner
+- **MIT OR Apache-2.0** — oximemo
 
 See each repo's `LICENSE` / `LICENSE.md` file for the exact text.
 
