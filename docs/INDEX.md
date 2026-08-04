@@ -15,7 +15,7 @@
 | 경로 | 내용 |
 |---|---|
 | `architecture/` | 생태계 아키텍처 — 레포 관계도, 데이터 흐름, 의존성 |
-| `decisions/` | ADR — 중요 설계 결정 기록 (OKLCH 채택, `.dark` 트리거, 네이밍 리네임 등) |
+| `decisions/` | ADR — 중요 설계 결정 기록 (OKLCH 채택, `.dark` 트리거, 네이밍 리네임 등; 최신: [`2026-08-04 전역 OMP AGENTS.md`](decisions/2026-08-04-global-omp-agents-md.md)) |
 | `design/` | 디자인 시스템 보조 노트 (canonical은 `../DESIGN.md`) |
 | `reports/` | 수동/감사 리포트 보관 (나이틀리 잡은 현재 `/tmp`에만 작성; 영속화는 추후 옵션) |
 | `conventions/` | 문서·커밋 규약 — [`DOC-ORGANIZATION.md`](conventions/DOC-ORGANIZATION.md) |
